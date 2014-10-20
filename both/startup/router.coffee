@@ -12,17 +12,21 @@ Router.map ->
 
 if Meteor.isClient
   famous.core.Engine.on 'keydown', (keyEvt) ->
-    console.log 'Keydown', keyEvt.which
     switch keyEvt.which
+      # SPACE and →: Go next slide
       when 39, 32 then Router.setNext()
+      # SPACE and →: Go next slide
       when 37 then Router.setPrev()
 
   Router.onBeforeAction ->
+    # Get the first index in the slidedeck when loading the app.
     unless Router.history?
       path = Router.current().path
       Router.history = _.indexOf SLIDES, _.find SLIDES, (slide) ->
         slide.path == path
-      console.log Router.history
+      famous.utilities.Timer.setTimeout ->
+        Router.setCounter()
+      , 100
 
   Router.setNext = ->
     Router.history++
@@ -34,5 +38,8 @@ if Meteor.isClient
     Router.history = SLIDES.length - 1 if Router.history is -1
     Router.go SLIDES[Router.history].path
 
-  Router.onAfterAction ->
-    console.log 'Set next slide'
+  Router.setCounter = ->
+    FView.byId('slideCpt').surface.setContent "<p id='slide-cpt'>\
+      #{Router.history + 1}/#{SLIDES.length}</p>"
+
+  Router.onAfterAction -> Router.setCounter()

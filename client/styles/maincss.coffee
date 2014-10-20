@@ -5,6 +5,17 @@
 
 css = new CSSC
 
+css.add '#slide-cpt',
+  border: "#{CSSC.x 3} solid #{CSSC.black}"
+  borderRadius: CSSC.x 30
+  backgroundColor: CSSC.white
+  color: CSSC.black
+  textAlign: 'center'
+  width: CSSC.p 100
+  height: CSSC.p 100
+  lineHeight: CSSC.x 24
+  boxSizing: 'border-box'
+
 css.add 'html',
   backgroundImage: "radial-gradient(ellipse at center, \
     #{@theme.bg1} 0%, #{@theme.bg2} 100%)"
