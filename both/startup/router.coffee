@@ -2,6 +2,7 @@ SLIDES = [
   { path: '/',    tpl: 'title' }
   { path: '/01',  tpl: 'slide01' }
   { path: '/02',  tpl: 'slide02' }
+  { path: '/end',  tpl: 'end' }
 ]
 
 Router.configure
@@ -24,9 +25,6 @@ if Meteor.isClient
       path = Router.current().path
       Router.history = _.indexOf SLIDES, _.find SLIDES, (slide) ->
         slide.path == path
-      famous.utilities.Timer.setTimeout ->
-        Router.setCounter()
-      , 100
 
   Router.setNext = ->
     Router.history++

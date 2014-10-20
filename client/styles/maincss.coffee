@@ -31,3 +31,11 @@ css.add 'h2',
 
 css.add 'p',
   fontSize: '1em'
+
+css.add 'a',
+  color: '#ebcb00'
+  textDecoration: 'none'
+  fontWeight: 'bold'
+
+css.add 'a:hover',
+  textDecoration: 'underline'
