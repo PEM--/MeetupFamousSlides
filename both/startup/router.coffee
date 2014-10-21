@@ -2,7 +2,7 @@ SLIDES = [
   { path: '/',    tpl: 'title' }
   { path: '/01',  tpl: 'slide01' }
   { path: '/02',  tpl: 'slide02' }
-  { path: '/end',  tpl: 'end' }
+  { path: '/end', tpl: 'end' }
 ]
 
 Router.configure
@@ -37,7 +37,7 @@ if Meteor.isClient
     Router.go SLIDES[Router.history].path
 
   Router.setCounter = ->
-    FView.byId('slideCpt').surface.setContent "<p id='slide-cpt'>\
+    FView.byId('slideCpt').surface.setContent "<p class='slide-cpt'>\
       #{Router.history + 1}/#{SLIDES.length}</p>"
 
   Router.onAfterAction -> Router.setCounter()

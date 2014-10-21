@@ -26,7 +26,7 @@ css.add '@font-face',
   fontStyle: 'normal'
 
 # Slide counter
-css.add '#slide-cpt',
+css.add '.slide-cpt',
   border: "#{CSSC.x 3} solid #{CSSC.black}"
   borderRadius: CSSC.x 30
   backgroundColor: CSSC.white
@@ -34,8 +34,14 @@ css.add '#slide-cpt',
   textAlign: 'center'
   width: CSSC.p 100
   height: CSSC.p 100
-  lineHeight: CSSC.x 24
+  lineHeight: CSSC.x 22
+  margin: 0
+  padding: 0
   boxSizing: 'border-box'
+
+css.add '.gravatar',
+  borderRadius: CSSC.p 5
+  width: CSSC.p 20
 
 # Background and generic values
 css.add 'html',
@@ -47,7 +53,7 @@ css.add 'html',
 
 # Titles
 css.add 'h1',
-  fontSize: '2.2em'
+  fontSize: '4em'
   fontFamily: 'lane'
   textShadow: '0px 1px 1px #4d4d4d'
 
