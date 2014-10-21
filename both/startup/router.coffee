@@ -12,12 +12,15 @@ Router.map ->
   @route slide.tpl, path: slide.path for slide in SLIDES
 
 if Meteor.isClient
-  famous.core.Engine.on 'keydown', (keyEvt) ->
-    switch keyEvt.which
-      # SPACE and →: Go next slide
-      when 39, 32 then Router.setNext()
-      # SPACE and →: Go next slide
-      when 37 then Router.setPrev()
+  Meteor.startup ->
+    # Events handling for going from one slide to the other.
+    famous.core.Engine.on 'keydown', (keyEvt) ->
+      switch keyEvt.which
+        # SPACE and →: Go next slide
+        when 39, 32 then Router.setNext()
+        # SPACE and →: Go next slide
+        when 37 then Router.setPrev()
+    famous.core.Engine.on CLICK_EVT, -> Router.setNext()
 
   Router.onBeforeAction ->
     # Get the first index in the slidedeck when loading the app.

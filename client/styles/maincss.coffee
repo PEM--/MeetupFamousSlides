@@ -27,10 +27,10 @@ css.add '@font-face',
 
 # Slide counter
 css.add '.slide-cpt',
-  border: "#{CSSC.x 3} solid #{CSSC.black}"
+  border: "#{CSSC.x 3} solid #{@theme.primary}"
   borderRadius: CSSC.x 30
   backgroundColor: CSSC.white
-  color: CSSC.black
+  color: @theme.primary
   textAlign: 'center'
   width: CSSC.p 100
   height: CSSC.p 100
@@ -39,8 +39,10 @@ css.add '.slide-cpt',
   padding: 0
   boxSizing: 'border-box'
 
+# Gravatar
 css.add '.gravatar',
   borderRadius: CSSC.p 5
+  border: "3px solid #{@theme.primary}"
   width: CSSC.p 20
 
 # Background and generic values
@@ -55,7 +57,6 @@ css.add 'html',
 css.add 'h1',
   fontSize: '4em'
   fontFamily: 'lane'
-  textShadow: '0px 1px 1px #4d4d4d'
 
 css.add 'h2',
   fontSize: '1.8em'
