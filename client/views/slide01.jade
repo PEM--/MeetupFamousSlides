@@ -1,3 +1,26 @@
 template(name='slide01')
-  +Surface size='[undefined, undefined]'
-    p Slide 01
+  +HeaderFooterLayout size='[undefined, undefined]'
+    +Surface size='[undefined, 100]' target='header'
+      h2 Meetup Famous - Build system
+    +Surface size='[undefined, undefined]' target='content'
+      ul
+        li Yeoman & Grunt : Directement celui de Myles de
+          a(href='https://github.com/FamousTools/generator-famous') Famo.us
+          | .
+        li Gulp : Plusieurs templates & exemples :
+          a(href='https://github.com/PEM--/hellofamousgulped') HelloFamousGulped
+          | .
+        li
+          a(href='https://www.meteor.com') Meteor
+          | : Incorpore son propre système de build.
+      p.left Installation et création d'un projet :
+      +prism language='bash' class='line-numbers'
+        | # Meteor installation
+        | curl https://install.meteor.com | /bin/sh
+        | # Create our sample application
+        | meteor create famousbubble
+        | # Hop in the directory and remove stuff
+        | cd famousbubble
+        | rm *
+    +Surface size='[undefined, 50]' target='footer' id='toto'
+      p PEM

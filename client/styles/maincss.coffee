@@ -25,6 +25,12 @@ css.add '@font-face',
   fontWeight: 'normal'
   fontStyle: 'normal'
 
+css.add '@font-face',
+  fontFamily: 'sourceCode'
+  src: "url('source-code-pro/SourceCodePro-Regular.otf')"
+  fontWeight: 'normal'
+  fontStyle: 'normal'
+
 # Slide counter
 css.add '.slide-cpt',
   border: "#{CSSC.x 3} solid #{@theme.primary}"
@@ -66,10 +72,20 @@ css.add 'h2',
 css.add 'p',
   fontSize: '1em'
 
+css.add '.left',
+  textAlign: 'left'
+
 css.add 'a',
   color: @theme.highligh
   textDecoration: 'none'
   fontFamily: 'sourceSansProBold'
 
+css.add 'li',
+  textAlign: 'left'
+
 css.add 'a:hover',
   textDecoration: 'underline'
+
+# Codes
+css.add 'code[class*="language-"]',
+  fontFamily: 'sourceCode'
