@@ -1,3 +1,25 @@
 template(name='slide02')
-  +Surface size='[undefined, undefined]'
-    p Slide 02
+  +HeaderFooterLayout size='[undefined, undefined]'
+    +Surface size='[undefined, 100]' target='header'
+      h2 Meetup Famous - Class inheritance
+    +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]' target='content'
+      p.left Javascript
+      +prism language='javascript' class='line-numbers'
+        | # Meteor installation
+        | curl https://install.meteor.com | /bin/sh
+        | # Create our sample application
+        | meteor create famousbubble
+        | # Hop in the directory and remove stuff
+        | cd famousbubble
+        | rm *
+      p.left CoffeeScript
+      +prism language='coffeescript' class='line-numbers'
+        | # Meteor installation
+        | curl https://install.meteor.com | /bin/sh
+        | # Create our sample application
+        | meteor create famousbubble
+        | # Hop in the directory and remove stuff
+        | cd famousbubble
+        | rm *
+    +Surface size='[undefined, 70]' target='footer' id='toto'
+      p PEM

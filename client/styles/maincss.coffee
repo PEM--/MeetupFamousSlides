@@ -44,6 +44,8 @@ css.add '.slide-cpt',
   margin: 0
   padding: 0
   boxSizing: 'border-box'
+  fontSize: '0.8em'
+  fontFamily: 'sourceSansProBold'
 
 # Gravatar
 css.add '.gravatar',
@@ -57,11 +59,11 @@ css.add 'html',
     #{@theme.bg1} 0%, #{@theme.bg2} 100%)"
   color: @theme.primary
   textAlign: 'center'
-  font: "20px sourceSansPro"
+  font: "24px sourceSansPro"
 
 # Titles
 css.add 'h1',
-  fontSize: '4em'
+  fontSize: '3em'
   fontFamily: 'lane'
 
 css.add 'h2',
@@ -70,7 +72,7 @@ css.add 'h2',
 
 # Texts
 css.add 'p',
-  fontSize: '1em'
+  fontSize: '1.2em'
 
 css.add '.left',
   textAlign: 'left'
@@ -86,6 +88,11 @@ css.add 'li',
 css.add 'a:hover',
   textDecoration: 'underline'
 
+css.add '.max-width',
+  maxWidth: CSSC.x 900
+
 # Codes
-css.add 'code[class*="language-"]',
+css.add 'pre[class*="language-"]',
   fontFamily: 'sourceCode'
+  fontSize: '.6em'
+  lineHeight: '.8em'

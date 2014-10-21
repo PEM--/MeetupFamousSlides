@@ -2,7 +2,7 @@ template(name='slide01')
   +HeaderFooterLayout size='[undefined, undefined]'
     +Surface size='[undefined, 100]' target='header'
       h2 Meetup Famous - Build system
-    +Surface size='[undefined, undefined]' target='content'
+    +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]' target='content'
       ul
         li Yeoman & Grunt : Directement celui de Myles de
           a(href='https://github.com/FamousTools/generator-famous') Famo.us
@@ -22,5 +22,7 @@ template(name='slide01')
         | # Hop in the directory and remove stuff
         | cd famousbubble
         | rm *
-    +Surface size='[undefined, 50]' target='footer' id='toto'
+        | # Importing packages
+        | meteor add mjn:famous coffeescript pierreeric:cssc-colors mquandalle:jade gadicohen:famous-views iron:router
+    +Surface size='[undefined, 70]' target='footer' id='toto'
       p PEM
