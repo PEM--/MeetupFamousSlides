@@ -1,0 +1,18 @@
+template(name='slide03')
+  +HeaderFooterLayout size='[undefined, undefined]'
+    +Surface size='[undefined, 100]' target='header'
+      h2 Meetup Famous - Bower and Git
+    +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]' target='content'
+      p.left Préparer les imports <b>lib/smart.require</b> :
+      +prism language='javascript' class='line-numbers'
+        | {
+        | 	"famous": {
+        | 		"git": "https://github.com/Famous/famous.git",
+        | 		"root": "src"
+        | 	}
+        | }
+      P.left Lancer Meteor :
+      +prism language='bash' class='line-numbers'
+        | meteor
+    +Surface size='[undefined, 70]' target='footer'
+      p PEM
