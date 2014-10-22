@@ -3,7 +3,9 @@ template(name='slide08')
     +Surface size='[undefined, 100]' target='header'
       h2 Meetup Famous - Les bulles
     +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]' target='content'
-      p.left Nos bulles :
+      p.left Nos bulles
+        code client/views/bubble.coffe
+        |  :
       +prism language='coffeescript' class='line-numbers'
         | class @Bubble
         |   constructor: ->

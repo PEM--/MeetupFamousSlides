@@ -88,6 +88,10 @@ css.add 'li',
 css.add 'a:hover',
   textDecoration: 'underline'
 
+css.add 'code',
+  fontFamily: 'sourceCode'
+  fontSize: '.9em'
+
 # Codes
 css.add 'pre[class*="language-"]',
   fontFamily: 'sourceCode'

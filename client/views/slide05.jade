@@ -3,7 +3,9 @@ template(name='slide05')
     +Surface size='[undefined, 100]' target='header'
       h2 Meetup Famous - Styling
     +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]' target='content'
-      p.left Optionnel, mais pour faciliter les interactions avec Famo.us, les styles sont en CoffeeScript :
+      p.left Optionnel, mais pour faciliter les interactions avec Famo.us, les styles sont en CoffeeScript
+        code client/styles/maincss.coffee
+        |  :
       +prism language='coffeescript' class='line-numbers'
         | css = new CSSC
         | css.add 'html',
