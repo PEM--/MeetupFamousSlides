@@ -11,6 +11,8 @@ SLIDES = [
   { path: '/09',  tpl: 'slide09' }
   { path: '/10',  tpl: 'slide10' }
   { path: '/11',  tpl: 'slide11' }
+  { path: '/12',  tpl: 'slide12' }
+  { path: '/13',  tpl: 'slide13' }
   { path: '/end', tpl: 'end' }
 ]
 

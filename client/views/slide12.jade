@@ -1,0 +1,23 @@
+template(name='slide12')
+  +HeaderFooterLayout size='[undefined, undefined]'
+    +Surface size='[undefined, 100]' target='header'
+      h2 Meetup Famous - Le finish, les bulles
+    +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]' target='content'
+      p.left Maintenant ajoutons nos bulles
+        code client/view/bubblebox.coffee
+        |  :
+      +prism language='coffeescript' class='line-numbers'
+        | ...
+        | DEFAULT_OPTIONS:
+        |   numBodies: 5
+        |   ...
+        | constructor: (@options) ->
+        |   ...
+        |   @bubbleBodies = []
+        |   @addBubbles()
+        | addBubbles: =>
+        |   [0...@options.numBodies].map (i) =>
+        |     famous.utilities.Timer.setTimeout (@addBubble.bind @, i)
+        |     , (i + 1) * 500
+    +Surface size='[undefined, 70]' target='footer'
+      p PEM
