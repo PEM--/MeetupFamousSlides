@@ -41,10 +41,10 @@ css.add '.slide-cpt',
   width: CSSC.p 100
   height: CSSC.p 100
   lineHeight: CSSC.x 22
+  fontSize: CSSC.x 14
   margin: 0
   padding: 0
   boxSizing: 'border-box'
-  fontSize: '0.8em'
   fontFamily: 'sourceSansProBold'
 
 # Gravatar

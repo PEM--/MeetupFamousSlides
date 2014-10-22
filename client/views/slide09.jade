@@ -1,0 +1,25 @@
+template(name='slide09')
+  +HeaderFooterLayout size='[undefined, undefined]'
+    +Surface size='[undefined, 100]' target='header'
+      h2 Meetup Famous - Une peu d'interactivité
+    +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]' target='content'
+      p.left Un pousseur :
+      +prism language='coffeescript' class='line-numbers'
+        | class @Dragger
+        |   RADIUS: 30
+        |   constructor: ->
+        |     @shape = new famous.core.Surface
+        |       size: [2 * @RADIUS, 2 * @RADIUS]
+        |       classes: ['bubble-dragger']
+        |       properties: borderRadius: CSSC.x 2 * @RADIUS
+        |     @body = new famous.physics.bodies.Circle
+        |       radius: @RADIUS
+        |       mass: @RADIUS
+        |     @position = [0, 0]
+        |     @mod = new famous.core.Modifier
+        |       origin: [.5, .5]
+        |       align: [.5, .5]
+        |       transform: =>
+        |         famous.core.Transform.translate @position[0], @position[1], 0
+    +Surface size='[undefined, 70]' target='footer'
+      p PEM
