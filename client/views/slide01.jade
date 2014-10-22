@@ -24,5 +24,7 @@ template(name='slide01')
         | rm *
         | # Importing packages
         | meteor add raix:famono coffeescript pierreeric:cssc-famous pierreeric:cssc-colors mquandalle:jade
+        | # Create the application structure
+        | mkdir -p client/views client/styles
     +Surface size='[undefined, 70]' target='footer'
       p PEM

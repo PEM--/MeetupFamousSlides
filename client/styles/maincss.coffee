@@ -88,9 +88,6 @@ css.add 'li',
 css.add 'a:hover',
   textDecoration: 'underline'
 
-css.add '.max-width',
-  maxWidth: CSSC.x 900
-
 # Codes
 css.add 'pre[class*="language-"]',
   fontFamily: 'sourceCode'
