@@ -1,0 +1,22 @@
+template(name='slide08')
+  +HeaderFooterLayout size='[undefined, undefined]'
+    +Surface size='[undefined, 100]' target='header'
+      h2 Meetup Famous - Les bulles
+    +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]' target='content'
+      p.left Notre première bulle :
+      +prism language='coffeescript' class='line-numbers'
+        | class @Bubble
+        |   constructor: ->
+        |     radius = famous.math.Random.integer 20, 60
+        |     @shape = new famous.core.Surface
+        |     size: [radius * 2, radius * 2]
+        |     classes: ['bubble-bluebubble']
+        |     properties: borderRadius: CSSC.x radius
+        |     @body = new famous.physics.bodies.Circle
+        |       radius: radius
+        |       mass: radius / 10
+        |     @state = new famous.core.Modifier
+        |       origin: [.5, .5]
+        |       align: [.5, .5]
+    +Surface size='[undefined, 70]' target='footer'
+      p PEM
