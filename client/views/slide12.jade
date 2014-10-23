@@ -1,9 +1,9 @@
 template(name='slide12')
   +HeaderFooterLayout size='[undefined, undefined]'
     +Surface size='[undefined, 100]' target='header'
-      h2 Meetup Famous - Le finish, les bulles
+      h2 Meetup Famous - The finish, the bubbles
     +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]' target='content'
-      p.left Maintenant ajoutons nos bulles
+      p.left Now, adding our bubbles
         code client/view/bubblebox.coffee
         |  :
       +prism language='coffeescript' class='line-numbers'
@@ -13,9 +13,9 @@ template(name='slide12')
         |   ...
         | constructor: (@options) ->
         |   ...
-        |   @bubbleBodies = []
         |   @addBubbles()
-        | addBubbles: =>
+        | ...
+        | addBubbles: ->
         |   [0...@options.numBodies].map (i) =>
         |     famous.utilities.Timer.setTimeout (@addBubble.bind @, i)
         |     , (i + 1) * 500

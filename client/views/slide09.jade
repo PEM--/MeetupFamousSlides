@@ -1,9 +1,9 @@
 template(name='slide09')
   +HeaderFooterLayout size='[undefined, undefined]'
     +Surface size='[undefined, 100]' target='header'
-      h2 Meetup Famous - Une peu d'interactivité
+      h2 Meetup Famous - Some interactivity
     +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]' target='content'
-      p.left Un pousseur
+      p.left A bubble pusher
         code client/view/dragger.coffee
         |  :
       +prism language='coffeescript' class='line-numbers'
@@ -16,7 +16,7 @@ template(name='slide09')
         |       properties: borderRadius: CSSC.x 2 * @RADIUS
         |     @body = new famous.physics.bodies.Circle
         |       radius: @RADIUS
-        |       mass: @RADIUS
+        |       mass: 60
         |     @position = [0, 0]
         |     @mod = new famous.core.Modifier
         |       origin: [.5, .5]

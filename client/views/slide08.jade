@@ -1,7 +1,7 @@
 template(name='slide08')
   +HeaderFooterLayout size='[undefined, undefined]'
     +Surface size='[undefined, 100]' target='header'
-      h2 Meetup Famous - Les bulles
+      h2 Meetup Famous - Bubbles
     +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]' target='content'
       p.left Nos bulles
         code client/views/bubble.coffee
@@ -13,12 +13,11 @@ template(name='slide08')
         |     @shape = new famous.core.Surface
         |       size: [radius * 2, radius * 2]
         |       classes: ['bubble-bluebubble']
-        |       properties:
-        |         borderRadius: CSSC.x radius
+        |       properties: borderRadius: CSSC.x radius
         |     @body = new famous.physics.bodies.Circle
         |       radius: radius
-        |       mass: 120 / radius
-        |     @state = new famous.core.Modifier
+        |       mass: radius / 10
+        |     @mod = new famous.core.Modifier
         |       origin: [.5, .5]
         |       align: [.5, .5]
     +Surface size='[undefined, 70]' target='footer'

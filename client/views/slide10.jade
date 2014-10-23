@@ -1,28 +1,31 @@
 template(name='slide10')
   +HeaderFooterLayout size='[undefined, undefined]'
     +Surface size='[undefined, 100]' target='header'
-      h2 Meetup Famous - Les forces et contraintes
+      h2 Meetup Famous - Forces & constraints
     +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]' target='content'
-      p.left Ajoutons une force, des contraintes et le moteur physique dans notre vue principale
+      p.left Adding a force, some constraints and the physic engine in our main view
         code client/view/bubblebox.coffee
-        |  :
+        | :
       +prism language='coffeescript' class='line-numbers'
         | ...
         | DEFAULT_OPTIONS:
-        |   gravity: [0, .15]
+        |   gravityStrength: 3
+        |   gravityNormal: [0, -200]
         |   ...
         | constructor: (@options) ->
         |   ...
-        |   @gravity = new famous.physics.forces.Force @options.gravity
+        |   @gravity = new famous.physics.forces.Repulsion
+        |     strength: @options.gravityStrength
+        |     anchor: @options.gravityNormal
         |   @walls = new famous.physics.constraints.Walls
         |     sides: famous.physics.constraints.Walls.SIDES.TWO_DIMENSIONAL
         |     size: @options.size
         |     origin: @options.origin
-        |     restitution: 0
+        |     restitution: 1
         |     drift: 1
         |   @pe = new famous.physics.PhysicsEngine()
         |   @collision = new famous.physics.constraints.Collision
-        |     restitution: 0
+        |     restitution: .8
         |     drift: 1
     +Surface size='[undefined, 70]' target='footer'
       p PEM

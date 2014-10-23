@@ -1,11 +1,11 @@
 template(name='slide07')
   +HeaderFooterLayout size='[undefined, undefined]'
     +Surface size='[undefined, 100]' target='header'
-      h2 Meetup Famous - Point d'entrée
+      h2 Meetup Famous - Entry point
     +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]' target='content'
-      p.left Appelons notre vue principale
+      p.left Calling our main view from Meteor
         code client/index.coffee
-        |  :
+        | :
       +prism language='coffeescript' class='line-numbers'
         | Template.index.rendered = ->
         |   mainCtx = famous.core.Engine.createContext()
