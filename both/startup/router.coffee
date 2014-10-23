@@ -1,4 +1,4 @@
-SLIDES = [
+@SLIDES = [
   { path: '/',    tpl: 'title' }
   { path: '/01',  tpl: 'slide01' }
   { path: '/03',  tpl: 'slide03' }
@@ -23,6 +23,9 @@ Router.map ->
   @route slide.tpl, path: slide.path for slide in SLIDES
 
 if Meteor.isClient
+  # Remove debug logging in Famous-Views
+  Logger.setLevel 'famous-views', 'error'
+
   Meteor.startup ->
     # Events handling for going from one slide to the other.
     famous.core.Engine.on 'keydown', (keyEvt) ->
@@ -41,17 +44,31 @@ if Meteor.isClient
         slide.path == path
 
   Router.setNext = ->
+    transition = Session.get 'currentTransition'
+    if transition is 'slideWindowRight' or transition is undefined
+      Session.set 'currentTransition', 'slideWindow'
     Router.history++
     Router.history = 0 if Router.history is SLIDES.length
     Router.go SLIDES[Router.history].path
 
   Router.setPrev = ->
+    transition = Session.get 'currentTransition'
+    if transition is 'slideWindow' or transition is undefined
+      Session.set 'currentTransition', 'slideWindowRight'
     Router.history--
     Router.history = SLIDES.length - 1 if Router.history is -1
     Router.go SLIDES[Router.history].path
 
   Router.setCounter = ->
-    FView.byId('slideCpt')?.surface.setContent "<p class='slide-cpt'>\
-      #{Router.history + 1}/#{SLIDES.length}</p>"
+    window.cpt = FView.byId 'slideCpt'
+    unless cpt is undefined
+      cpt.modifier.setTransform (famous.core.Transform.rotateY Math.PI),
+        duration: 300
+      famous.utilities.Timer.setTimeout ->
+        cpt.surface.setContent "<p class='slide-cpt'>\
+          #{Router.history + 1}/#{SLIDES.length}</p>"
+        cpt.modifier.setTransform (famous.core.Transform.rotateY 0),
+          duration: 300
+      , 300
 
   Router.onAfterAction -> Router.setCounter()
