@@ -1,7 +1,7 @@
 ## Introduction
 Slides for [Famo.us's meetup in Paris](http://www.meetup.com/Paris-Famo-us-Meetup-France/), the October 24th, 2014.
 
-
+![Slides](https://raw.githubusercontent.com/PEM--/MeetupFamousSlides/master/private/doc/slides.jpg)
 
 ## Online slides
 The slides are deployed on Meteor: http://meetupfamousslides.meteor.com
