@@ -65,8 +65,7 @@ if Meteor.isClient
       cpt.modifier.setTransform (famous.core.Transform.rotateY Math.PI),
         duration: 300
       famous.utilities.Timer.setTimeout ->
-        cpt.surface.setContent "<p class='slide-cpt'>\
-          #{Router.history + 1}/#{SLIDES.length}</p>"
+        Session.set 'slideCpt', "#{Router.history + 1}/#{SLIDES.length}"
         cpt.modifier.setTransform (famous.core.Transform.rotateY 0),
           duration: 300
       , 300
