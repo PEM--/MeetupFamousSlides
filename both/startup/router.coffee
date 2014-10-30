@@ -1,26 +1,24 @@
 @SLIDES = [
-  { path: '/',    tpl: 'title' }
-  { path: '/01',  tpl: 'slide01' }
-  { path: '/03',  tpl: 'slide03' }
-  { path: '/04',  tpl: 'slide04' }
-  { path: '/02',  tpl: 'slide02' }
-  { path: '/05',  tpl: 'slide05' }
-  { path: '/06',  tpl: 'slide06' }
-  { path: '/07',  tpl: 'slide07' }
-  { path: '/08',  tpl: 'slide08' }
-  { path: '/09',  tpl: 'slide09' }
-  { path: '/10',  tpl: 'slide10' }
-  { path: '/11',  tpl: 'slide11' }
-  { path: '/12',  tpl: 'slide12' }
-  { path: '/13',  tpl: 'slide13' }
-  { path: '/end', tpl: 'end' }
+  { path: '/', tpl: 'title' }
+  { path: '/slide01' }
+  { path: '/slide02' }
+  { path: '/slide03' }
+  { path: '/slide04' }
+  { path: '/slide05' }
+  { path: '/slide06' }
+  { path: '/slide07' }
+  { path: '/slide08' }
+  { path: '/slide09' }
+  { path: '/slide10' }
+  { path: '/slide11' }
+  { path: '/slide12' }
+  { path: '/slide13' }
+  { path: '/end' }
 ]
 
-Router.configure
-  layoutTemplate: 'layout'
-
-Router.map ->
-  @route slide.tpl, path: slide.path for slide in SLIDES
+Router.configure layoutTemplate: 'layout'
+Router.route SLIDES[0].path, -> @render SLIDES[0].tpl
+Router.route slide.path for slide in _.rest SLIDES
 
 if Meteor.isClient
   # Remove debug logging in Famous-Views
@@ -39,9 +37,13 @@ if Meteor.isClient
   Router.onBeforeAction ->
     # Get the first index in the slidedeck when loading the app.
     unless Router.history?
-      path = Router.current().path
+      path = Router.current().url
       Router.history = _.indexOf SLIDES, _.find SLIDES, (slide) ->
-        slide.path == path
+        slide.path is path
+      console.log 'Current url', Router.current().url
+      console.log 'Current path', path
+      console.log 'Router.history', Router.history
+    @next()
 
   Router.setNext = ->
     transition = Session.get 'currentTransition'

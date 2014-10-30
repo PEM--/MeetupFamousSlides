@@ -1,25 +1,20 @@
 template(name='slide02')
   +HeaderFooterLayout size='[undefined, undefined]'
     +Surface size='[undefined, 100]' target='header'
-      h2 Meetup Famous - Class inheritance
+      h2 Meetup Famous - Bower and Git
     +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]' target='content'
-      p.left Javascript
+      p.left Prepare the imports
+        code lib/smart.require
+        | :
       +prism language='javascript' class='line-numbers'
-        | function EmptyView() {
-        |   View.apply(this, arguments);
+        | {
+        | 	"famous": {
+        | 		"git": "https://github.com/Famous/famous.git",
+        | 		"root": "src"
+        | 	}
         | }
-        | EmptyView.prototype = Object.create(View.prototype);
-        | EmptyView.prototype.constructor = EmptyView;
-        | EmptyView.DEFAULT_OPTIONS = {
-        |   origin: [.5, .5]
-        | };
-      p.left CoffeeScript
-      +prism language='coffeescript' class='line-numbers'
-        | class EmptyView extends View
-        |   DEFAULT_OPTIONS:
-        |     origin: [.5, .5]
-        |   constructor: (@options)->
-        |     @constructor.DEFAULT_OPTIONS = @DEFAULT_OPTIONS
-        |     super @options
+      P.left Launch Meteor :
+      +prism language='bash' class='line-numbers'
+        | meteor
     +Surface size='[undefined, 70]' target='footer'
       p PEM

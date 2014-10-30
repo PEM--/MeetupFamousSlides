@@ -4,8 +4,6 @@
 # but you can also edit it by hand.
 
 meteor-platform
-autopublish
-insecure
 mjn:famous
 coffeescript
 pierreeric:cssc-colors
@@ -13,4 +11,3 @@ mquandalle:jade
 gadicohen:famous-views
 iron:router
 gadicohen:prism
-

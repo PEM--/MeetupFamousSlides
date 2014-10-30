@@ -1,22 +1,25 @@
 template(name='slide04')
   +HeaderFooterLayout size='[undefined, undefined]'
     +Surface size='[undefined, 100]' target='header'
-      h2 Meetup Famous - An empty shell
+      h2 Meetup Famous - Class inheritance
     +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]' target='content'
-      p.left Our page bootstraping Famo.us
-        code client/index.jade
-        | :
-      +prism language='jade' class='line-numbers'
-        | head
-        |   title Famous Bubbles
-        |   meta(charset='utf-8')
-        |   meta(name='viewport', content='width=device-width, maximum-scale=1, user-scalable=no')
-        |   meta(name='apple-mobile-web-app-capable', content='yes')
-        |   meta(name='apple-mobile-web-app-status-bar-style', content='black')
-        |   meta(name='apple-mobile-web-app-capable', content='yes')
-        |   meta(name='mobile-web-app-capable', content='yes')
-        | body
-        |   +index
-        | template(name='index')
+      p.left Javascript
+      +prism language='javascript' class='line-numbers'
+        | function EmptyView() {
+        |   View.apply(this, arguments);
+        | }
+        | EmptyView.prototype = Object.create(View.prototype);
+        | EmptyView.prototype.constructor = EmptyView;
+        | EmptyView.DEFAULT_OPTIONS = {
+        |   origin: [.5, .5]
+        | };
+      p.left CoffeeScript
+      +prism language='coffeescript' class='line-numbers'
+        | class EmptyView extends View
+        |   DEFAULT_OPTIONS:
+        |     origin: [.5, .5]
+        |   constructor: (@options)->
+        |     @constructor.DEFAULT_OPTIONS = @DEFAULT_OPTIONS
+        |     super @options
     +Surface size='[undefined, 70]' target='footer'
       p PEM
