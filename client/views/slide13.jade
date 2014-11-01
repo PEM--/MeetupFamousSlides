@@ -3,21 +3,21 @@ template(name='slide13')
     +Surface size='[undefined, 100]' target='header'
       h2 Meetup Famous - The finish, the bubbles
     +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]' target='content'
+      p.left Now, adding our bubbles
+        code client/view/bubblebox.coffee
+        |  :
       +prism language='coffeescript' class='line-numbers'
+        | ...
+        | DEFAULT_OPTIONS:
+        |   numBodies: 5
         |   ...
-        |   addBubble: (i) ->
-        |     bubble = new Bubble()
-        |     (@add bubble.mod).add bubble.shape
-        |     bubble.mod.transformFrom ->
-        |       bubble.body.getTransform()
-        |     @pe.attach @collision, @pe.getBodies(), bubble.body
-        |     @pe.attach [
-        |       @gravity
-        |       @walls.components[0]
-        |       @walls.components[1]
-        |       @walls.components[2]
-        |       @walls.components[3]
-        |     ] , bubble.body
-        |     @pe.addBody bubble.body
+        | constructor: (@options) ->
+        |   ...
+        |   @addBubbles()
+        | ...
+        | addBubbles: ->
+        |   [0...@options.numBodies].map (i) =>
+        |     famous.utilities.Timer.setTimeout (@addBubble.bind @, i)
+        |     , (i + 1) * 500
     +Surface size='[undefined, 70]' target='footer'
       p PEM

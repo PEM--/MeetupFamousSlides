@@ -1,23 +1,27 @@
 template(name='slide12')
   +HeaderFooterLayout size='[undefined, undefined]'
     +Surface size='[undefined, 100]' target='header'
-      h2 Meetup Famous - The finish, the bubbles
+      h2 Meetup Famous - Bubble pusher
     +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]' target='content'
-      p.left Now, adding our bubbles
+      p.left Adding the bubble pusher
         code client/view/bubblebox.coffee
-        |  :
+        | :
       +prism language='coffeescript' class='line-numbers'
-        | ...
-        | DEFAULT_OPTIONS:
-        |   numBodies: 5
-        |   ...
         | constructor: (@options) ->
         |   ...
-        |   @addBubbles()
-        | ...
-        | addBubbles: ->
-        |   [0...@options.numBodies].map (i) =>
-        |     famous.utilities.Timer.setTimeout (@addBubble.bind @, i)
-        |     , (i + 1) * 500
+        |   famous.inputs.GenericSync.register
+        |     'mouse': famous.inputs.MouseSync
+        |     'touch': famous.inputs.TouchSync
+        |   @addDragger()
+        | addDragger: ->
+        |   @dragger = new Dragger()
+        |   @pe.addBody @dragger.body
+        |   (@add @dragger.mod).add @dragger.shape
+        |   sync = new famous.inputs.GenericSync ['mouse', 'touch']
+        |   @dragger.shape.pipe sync
+        |   sync.on 'update', (data) =>
+        |     @dragger.position[0] += data.delta[0]
+        |     @dragger.position[1] += data.delta[1]
+        |     @dragger.body.setPosition @dragger.position
     +Surface size='[undefined, 70]' target='footer'
       p PEM
