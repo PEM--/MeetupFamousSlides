@@ -26,3 +26,10 @@ template(name='slide2')
 That's it!
 
 Slide templates/themes/transitions coming soon.
+
+## Customization
+
+Take a look at [lib/layout.jade](lib/layout.jade).  You can copy and paste this
+and make your own custom layout Template called `layout`.  If we detect that on
+load, we'll automatically use it instead of `defaultLayout`, and still add our
+same helpers onto it for your use.
