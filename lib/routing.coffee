@@ -42,6 +42,7 @@ Router.setPrev = ->
 Router.setCounter = ->
   window.cpt = FView.byId 'slideCpt'
   unless cpt is undefined
+    cpt.modifier.halt()
     cpt.modifier.setTransform (famous.core.Transform.rotateY Math.PI),
       duration: 300,
       ->
