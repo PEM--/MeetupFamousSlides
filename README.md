@@ -1,9 +1,28 @@
-## Introduction
-Slides for [Famo.us's meetup in Paris](http://www.meetup.com/Paris-Famo-us-Meetup-France/), the October 24th, 2014.
+Usage:
 
-![Slides](https://raw.githubusercontent.com/PEM--/MeetupFamousSlides/master/private/doc/slides.jpg)
+```bash
+$ meteor add pierreeric:fview-slidedeck
+```
 
-## Online slides
-The slides are deployed on Meteor: http://meetupfamousslides.meteor.com
+And then create in `client` directory:
 
-You can find additional informations on the presentation engine on my blog: http://pem-musing.blogspot.fr/2014/10/create-your-slide-deck-using-famous-and.html
+```jade
+template(name='slide1')
+  +HeaderFooterLayout headerSize=100 footerSize=70
+    +Surface target='header'
+      h2 Meetup Famous
+    +Surface target='content'
+      h1 Physic engine
+      img.gravatar(src='/gravatar.png')
+    +Surface target='footer'
+      p PEM : Pierre-Eric Marchandet
+```
+
+```jade
+template(name='slide2')
+  etc
+```
+
+That's it!
+
+Slide templates/themes/transitions coming soon.
