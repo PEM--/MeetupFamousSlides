@@ -1,8 +1,8 @@
 template(name='slide10')
-  +HeaderFooterLayout size='[undefined, undefined]'
-    +Surface size='[undefined, 100]' target='header'
+  +HeaderFooterLayout headerSize=100 footerSize=70
+    +Surface target='header'
       h2 Meetup Famous - Some interactivity
-    +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]' target='content'
+    +Surface align='[.5, .5]' origin='[.5, .5]' target='content'
       p.left A bubble pusher
         code client/view/dragger.coffee
         |  :
@@ -23,5 +23,5 @@ template(name='slide10')
         |       align: [.5, .5]
         |       transform: =>
         |         famous.core.Transform.translate @position[0], @position[1], 0
-    +Surface size='[undefined, 70]' target='footer'
+    +Surface target='footer'
       p PEM

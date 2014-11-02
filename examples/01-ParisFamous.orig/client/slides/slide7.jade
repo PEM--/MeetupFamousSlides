@@ -1,8 +1,8 @@
 template(name='slide7')
-  +HeaderFooterLayout size='[undefined, undefined]'
-    +Surface size='[undefined, 100]' target='header'
+  +HeaderFooterLayout headerSize=100 footerSize=70
+    +Surface target='header'
       h2 Meetup Famous - Main view
-    +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]' target='content'
+    +Surface align='[.5, .5]' origin='[.5, .5]' target='content'
       p.left Our main view
         code client/views/bubblebox.coffee
         | :
@@ -22,5 +22,5 @@ template(name='slide7')
         |       origin: @options.origin
         |       align: @options.align
         |     @add(mod).add surf
-    +Surface size='[undefined, 70]' target='footer'
+    +Surface target='footer'
       p PEM

@@ -1,8 +1,8 @@
 template(name='slide15')
-  +HeaderFooterLayout size='[undefined, undefined]'
-    +Surface size='[undefined, 100]' target='header'
+  +HeaderFooterLayout headerSize=100 footerSize=70
+    +Surface target='header'
       h2 Meetup Famous
-    +Surface size='[undefined, undefined]' target='content'
+    +Surface target='content'
       h1 Thank you for your time.
         br
         | Any questions?
@@ -12,5 +12,5 @@ template(name='slide15')
       p Sources are available here:
         br
         a(href='https://github.com/PEM--/famousbubble') github.com/PEM--/famousbubble
-    +Surface size='[undefined, 70]' target='footer'
+    +Surface target='footer'
       p PEM

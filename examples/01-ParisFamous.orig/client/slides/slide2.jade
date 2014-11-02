@@ -1,8 +1,8 @@
 template(name='slide2')
-  +HeaderFooterLayout size='[undefined, undefined]'
-    +Surface size='[undefined, 100]' target='header'
+  +HeaderFooterLayout headerSize=100 footerSize=70
+    +Surface target='header'
       h2 Meetup Famous - Build system
-    +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]' target='content'
+    +Surface align='[.5, .5]' origin='[.5, .5]' target='content'
       ul
         li Yeoman & Grunt: Use the one from Myles
           a(href='https://github.com/FamousTools/generator-famous') Famo.us
@@ -26,5 +26,5 @@ template(name='slide2')
         | meteor add raix:famono coffeescript pierreeric:cssc-famous pierreeric:cssc-colors mquandalle:jade
         | # Create the application structure
         | mkdir -p client/views client/styles
-    +Surface size='[undefined, 70]' target='footer'
+    +Surface target='footer'
       p PEM

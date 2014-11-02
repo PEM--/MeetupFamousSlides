@@ -1,8 +1,8 @@
 template(name='slide5')
-  +HeaderFooterLayout size='[undefined, undefined]'
-    +Surface size='[undefined, 100]' target='header'
+  +HeaderFooterLayout headerSize=100 footerSize=70
+    +Surface target='header'
       h2 Meetup Famous - Class inheritance
-    +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]' target='content'
+    +Surface align='[.5, .5]' origin='[.5, .5]' target='content'
       p.left Javascript
       +prism language='javascript' class='line-numbers'
         | function EmptyView() {
@@ -21,5 +21,5 @@ template(name='slide5')
         |   constructor: (@options)->
         |     @constructor.DEFAULT_OPTIONS = @DEFAULT_OPTIONS
         |     super @options
-    +Surface size='[undefined, 70]' target='footer'
+    +Surface target='footer'
       p PEM

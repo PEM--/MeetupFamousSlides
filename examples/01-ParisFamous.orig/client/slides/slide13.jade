@@ -1,8 +1,8 @@
 template(name='slide13')
-  +HeaderFooterLayout size='[undefined, undefined]'
-    +Surface size='[undefined, 100]' target='header'
+  +HeaderFooterLayout headerSize=100 footerSize=70
+    +Surface target='header'
       h2 Meetup Famous - The finish, the bubbles
-    +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]' target='content'
+    +Surface align='[.5, .5]' origin='[.5, .5]' target='content'
       p.left Now, adding our bubbles
         code client/view/bubblebox.coffee
         |  :
@@ -19,5 +19,5 @@ template(name='slide13')
         |   [0...@options.numBodies].map (i) =>
         |     famous.utilities.Timer.setTimeout (@addBubble.bind @, i)
         |     , (i + 1) * 500
-    +Surface size='[undefined, 70]' target='footer'
+    +Surface target='footer'
       p PEM

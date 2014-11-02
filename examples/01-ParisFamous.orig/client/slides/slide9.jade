@@ -1,8 +1,8 @@
 template(name='slide9')
-  +HeaderFooterLayout size='[undefined, undefined]'
-    +Surface size='[undefined, 100]' target='header'
+  +HeaderFooterLayout headerSize=100 footerSize=70
+    +Surface target='header'
       h2 Meetup Famous - Bubbles
-    +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]' target='content'
+    +Surface align='[.5, .5]' origin='[.5, .5]' target='content'
       p.left Our bubbles
         code client/views/bubble.coffee
         |  :
@@ -20,5 +20,5 @@ template(name='slide9')
         |     @mod = new famous.core.Modifier
         |       origin: [.5, .5]
         |       align: [.5, .5]
-    +Surface size='[undefined, 70]' target='footer'
+    +Surface target='footer'
       p PEM

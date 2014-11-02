@@ -1,8 +1,8 @@
 template(name='slide6')
-  +HeaderFooterLayout size='[undefined, undefined]'
-    +Surface size='[undefined, 100]' target='header'
+  +HeaderFooterLayout headerSize=100 footerSize=70
+    +Surface target='header'
       h2 Meetup Famous - Styling
-    +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]' target='content'
+    +Surface align='[.5, .5]' origin='[.5, .5]' target='content'
       p.left Optional, to simplify interactions with Famo.us, styles are written in CoffeeScript
         code client/styles/maincss.coffee
         | :
@@ -19,5 +19,5 @@ template(name='slide6')
         | css.add '.bubble-dragger',
         |   backgroundColor: 'rgba(255, 255, 255, .5)'
         |   border: '2px solid ' + CSSC.red
-    +Surface size='[undefined, 70]' target='footer'
+    +Surface target='footer'
       p PEM

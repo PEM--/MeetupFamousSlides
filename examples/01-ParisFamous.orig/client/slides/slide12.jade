@@ -1,8 +1,8 @@
 template(name='slide12')
-  +HeaderFooterLayout size='[undefined, undefined]'
-    +Surface size='[undefined, 100]' target='header'
+  +HeaderFooterLayout headerSize=100 footerSize=70
+    +Surface target='header'
       h2 Meetup Famous - Bubble pusher
-    +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]' target='content'
+    +Surface align='[.5, .5]' origin='[.5, .5]' target='content'
       p.left Adding the bubble pusher
         code client/view/bubblebox.coffee
         | :
@@ -23,5 +23,5 @@ template(name='slide12')
         |     @dragger.position[0] += data.delta[0]
         |     @dragger.position[1] += data.delta[1]
         |     @dragger.body.setPosition @dragger.position
-    +Surface size='[undefined, 70]' target='footer'
+    +Surface target='footer'
       p PEM

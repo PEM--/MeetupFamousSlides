@@ -1,8 +1,8 @@
 template(name='slide14')
-  +HeaderFooterLayout size='[undefined, undefined]'
-    +Surface size='[undefined, 100]' target='header'
+  +HeaderFooterLayout headerSize=100 footerSize=70
+    +Surface target='header'
       h2 Meetup Famous - The finish, the bubbles
-    +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]' target='content'
+    +Surface align='[.5, .5]' origin='[.5, .5]' target='content'
       +prism language='coffeescript' class='line-numbers'
         |   ...
         |   addBubble: (i) ->
@@ -19,5 +19,5 @@ template(name='slide14')
         |       @walls.components[3]
         |     ] , bubble.body
         |     @pe.addBody bubble.body
-    +Surface size='[undefined, 70]' target='footer'
+    +Surface target='footer'
       p PEM
