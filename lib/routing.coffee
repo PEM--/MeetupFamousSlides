@@ -2,11 +2,21 @@ Router.configure layoutTemplate: 'layout'
 Router.route '/',
   onBeforeAction: ->
     Router.go('/slides/1')
+    @next()
 Router.route '/slides/:id', ->
   unless Router.history?
     Router.history = @params.id
     Session.set 'slideCpt', "#{Router.history}/#{slideCount}"
-  @render "slide" + @params.id
+  unless slidedeck.impress
+    @render "slide" + @params.id
+  unless FView.byId("deckmod")
+    return
+  deckmod = FView.byId("deckmod").modifier
+  slide = FView.byId("slide" + @params.id).modifier
+  deckmod.setTransform (Transform.inverse \
+    slide.getFinalTransform()),
+    duration: 1000,
+    curve: Easing.inOutQuart
 
 # Remove debug logging in Famous-Views
 Logger.setLevel 'famous-views', 'error'

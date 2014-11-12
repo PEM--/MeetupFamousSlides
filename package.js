@@ -17,7 +17,9 @@ Package.onUse(function(api) {
 	api.use([
 		'mquandalle:jade@0.2.8',
 		'iron:router@1.0.0',
-		'gadicohen:famous-views@0.1.19'
+    'mjn:famous@0.3.0_5',
+		'gadicohen:famous-views@0.1.24',
+    'pierreeric:cssc-colors@0.1.0'
 	], 'client');
 
 	// Package files
@@ -30,6 +32,8 @@ Package.onUse(function(api) {
   	'lib/routing.coffee',
   	'lib/css-styles.coffee'
   ], 'client');
+
+  api.export('slidedeck', 'client');
 });
 
 Package.onTest(function(api) {
