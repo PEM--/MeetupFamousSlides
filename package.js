@@ -15,7 +15,7 @@ Package.onUse(function(api) {
 
   // Atmosphere packages
 	api.use([
-		'mquandalle:jade@0.2.8',
+		'mquandalle:jade@0.2.9',
 		'iron:router@1.0.0',
     'mjn:famous@0.3.0_5',
 		'gadicohen:famous-views@0.1.24',
