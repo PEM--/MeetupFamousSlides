@@ -1,0 +1,310 @@
+template(name='slide1')
+  +Surface
+    h2#header Meetup Famous
+    h1 Physic engine
+    img.gravatar(src='/gravatar.png')
+    div#footer PEM : Pierre-Eric Marchandet
+
+template(name='slide2')
+  +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]'
+    h2#header Meetup Famous - Build system
+    ul
+      li Yeoman & Grunt: Use the one from Myles
+        a(href='https://github.com/FamousTools/generator-famous') Famo.us
+        | .
+      li Gulp: Many templates & samples:
+        a(href='https://github.com/PEM--/hellofamousgulped') HelloFamousGulped
+        | .
+      li
+        a(href='https://www.meteor.com') Meteor
+        | : Got its own build system.
+    p.left Install and create a project:
+    +prism language='bash' class='line-numbers'
+      | # Meteor installation
+      | curl https://install.meteor.com | /bin/sh
+      | # Create our sample application
+      | meteor create famousbubble
+      | # Hop in the directory and remove stuff
+      | cd famousbubble
+      | rm *
+      | # Importing packages
+      | meteor add raix:famono coffeescript pierreeric:cssc-famous pierreeric:cssc-colors mquandalle:jade
+      | # Create the application structure
+      | mkdir -p client/views client/styles
+    div#footer PEM
+
+template(name='slide3')
+  +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]'
+    h2#header Meetup Famous - Bower and Git
+    p.left Prepare the imports
+      code lib/smart.require
+      | :
+    +prism language='javascript' class='line-numbers'
+      | {
+      | 	"famous": {
+      | 		"git": "https://github.com/Famous/famous.git",
+      | 		"root": "src"
+      | 	}
+      | }
+    p.left Launch Meteor :
+    +prism language='bash' class='line-numbers'
+      | meteor
+    div#footer PEM
+
+template(name='slide4')
+  +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]'
+    h2#header Meetup Famous - An empty shell
+    p.left Our page bootstraping Famo.us
+      code client/index.jade
+      | :
+    +prism language='jade' class='line-numbers'
+      | head
+      |   title Famous Bubbles
+      |   meta(charset='utf-8')
+      |   meta(name='viewport', content='width=device-width, maximum-scale=1, user-scalable=no')
+      |   meta(name='apple-mobile-web-app-capable', content='yes')
+      |   meta(name='apple-mobile-web-app-status-bar-style', content='black')
+      |   meta(name='apple-mobile-web-app-capable', content='yes')
+      |   meta(name='mobile-web-app-capable', content='yes')
+      | body
+      |   +index
+      | template(name='index')
+    div#footer PEM
+
+template(name='slide5')
+  +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]'
+    h2#header Meetup Famous - Class inheritance
+    p.left Javascript
+    +prism language='javascript' class='line-numbers'
+      | function EmptyView() {
+      |   View.apply(this, arguments);
+      | }
+      | EmptyView.prototype = Object.create(View.prototype);
+      | EmptyView.prototype.constructor = EmptyView;
+      | EmptyView.DEFAULT_OPTIONS = {
+      |   origin: [.5, .5]
+      | };
+    p.left CoffeeScript
+    +prism language='coffeescript' class='line-numbers'
+      | class EmptyView extends View
+      |   DEFAULT_OPTIONS:
+      |     origin: [.5, .5]
+      |   constructor: (@options)->
+      |     @constructor.DEFAULT_OPTIONS = @DEFAULT_OPTIONS
+      |     super @options
+    div#footer PEM
+
+template(name='slide6')
+  +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]'
+    h2#header Meetup Famous - Styling
+    p.left Optional, to simplify interactions with Famo.us, styles are written in CoffeeScript
+      code client/styles/maincss.coffee
+      | :
+    +prism language='coffeescript' class='line-numbers'
+      | css = new CSSC
+      | css.add 'html',
+      |   backgroundColor: CSSC.orange
+      | css.add '.bubble-main-box',
+      |   backgroundColor: CSSC.yellow
+      |   borderRadius: '8px'
+      | css.add '.bubble-bluebubble',
+      |   backgroundColor: CSSC.aqua
+      |   border: '3px solid ' + CSSC.blue
+      | css.add '.bubble-dragger',
+      |   backgroundColor: 'rgba(255, 255, 255, .5)'
+      |   border: '2px solid ' + CSSC.red
+    div#footer PEM
+
+template(name='slide7')
+  +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]'
+    h2#header Meetup Famous - Main view
+    p.left Our main view
+      code client/views/bubblebox.coffee
+      | :
+    +prism language='coffeescript' class='line-numbers'
+      | class @BubbleBox extends famous.core.View
+      |   DEFAULT_OPTIONS:
+      |     size: [400, 400]
+      |     origin: [.5, .5]
+      |     align: [.5, .5]
+      |   constructor: (@options) ->
+      |     @constructor.DEFAULT_OPTIONS = @DEFAULT_OPTIONS
+      |     super @options
+      |     surf = new famous.core.Surface
+      |       size: @options.size
+      |       classes: ['bubble-main-box']
+      |     mod = new famous.core.Modifier
+      |       origin: @options.origin
+      |       align: @options.align
+      |     @add(mod).add surf
+    div#footer PEM
+
+template(name='slide8')
+  +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]'
+    h2#header Meetup Famous - Entry point
+    p.left Calling our main view from Meteor
+      code client/index.coffee
+      | :
+    +prism language='coffeescript' class='line-numbers'
+      | Template.index.rendered = ->
+      |   mainCtx = famous.core.Engine.createContext()
+      |   appView = new BubbleBox()
+      |   mainCtx.add appView
+    div#footer PEM
+
+template(name='slide9')
+  +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]'
+    h2#header Meetup Famous - Bubbles
+    p.left Our bubbles
+      code client/views/bubble.coffee
+      |  :
+    +prism language='coffeescript' class='line-numbers'
+      | class @Bubble
+      |   constructor: ->
+      |     radius = famous.math.Random.integer 20, 60
+      |     @shape = new famous.core.Surface
+      |       size: [radius * 2, radius * 2]
+      |       classes: ['bubble-bluebubble']
+      |       properties: borderRadius: CSSC.x radius
+      |     @body = new famous.physics.bodies.Circle
+      |       radius: radius
+      |       mass: radius / 10
+      |     @mod = new famous.core.Modifier
+      |       origin: [.5, .5]
+      |       align: [.5, .5]
+    div#footer PEM
+
+template(name='slide10')
+  +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]'
+    h2#header Meetup Famous - Some interactivity
+    p.left A bubble pusher
+      code client/view/dragger.coffee
+      |  :
+    +prism language='coffeescript' class='line-numbers'
+      | class @Dragger
+      |   RADIUS: 30
+      |   constructor: ->
+      |     @shape = new famous.core.Surface
+      |       size: [2 * @RADIUS, 2 * @RADIUS]
+      |       classes: ['bubble-dragger']
+      |       properties: borderRadius: CSSC.x 2 * @RADIUS
+      |     @body = new famous.physics.bodies.Circle
+      |       radius: @RADIUS
+      |       mass: 60
+      |     @position = [0, 0]
+      |     @mod = new famous.core.Modifier
+      |       origin: [.5, .5]
+      |       align: [.5, .5]
+      |       transform: =>
+      |         famous.core.Transform.translate @position[0], @position[1], 0
+    div#footer PEM
+
+template(name='slide11')
+  +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]'
+    h2#header Meetup Famous - Forces & constraints
+    p.left Adding a force, some constraints and the physic engine in our main view
+      code client/view/bubblebox.coffee
+      | :
+    +prism language='coffeescript' class='line-numbers'
+      | ...
+      | DEFAULT_OPTIONS:
+      |   gravityStrength: 3
+      |   gravityNormal: [0, -200]
+      |   ...
+      | constructor: (@options) ->
+      |   ...
+      |   @gravity = new famous.physics.forces.Repulsion
+      |     strength: @options.gravityStrength
+      |     anchor: @options.gravityNormal
+      |   @walls = new famous.physics.constraints.Walls
+      |     sides: famous.physics.constraints.Walls.SIDES.TWO_DIMENSIONAL
+      |     size: @options.size
+      |     origin: @options.origin
+      |     restitution: 1
+      |     drift: 1
+      |   @pe = new famous.physics.PhysicsEngine()
+      |   @collision = new famous.physics.constraints.Collision
+      |     restitution: .8
+      |     drift: 1
+    div#footer PEM
+
+template(name='slide12')
+  +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]'
+    h2#header Meetup Famous - Bubble pusher
+    p.left Adding the bubble pusher
+      code client/view/bubblebox.coffee
+      | :
+    +prism language='coffeescript' class='line-numbers'
+      | constructor: (@options) ->
+      |   ...
+      |   famous.inputs.GenericSync.register
+      |     'mouse': famous.inputs.MouseSync
+      |     'touch': famous.inputs.TouchSync
+      |   @addDragger()
+      | addDragger: ->
+      |   @dragger = new Dragger()
+      |   @pe.addBody @dragger.body
+      |   (@add @dragger.mod).add @dragger.shape
+      |   sync = new famous.inputs.GenericSync ['mouse', 'touch']
+      |   @dragger.shape.pipe sync
+      |   sync.on 'update', (data) =>
+      |     @dragger.position[0] += data.delta[0]
+      |     @dragger.position[1] += data.delta[1]
+      |     @dragger.body.setPosition @dragger.position
+    div#footer PEM
+
+template(name='slide13')
+  +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]'
+    h2#header Meetup Famous - The finish, the bubbles
+    p.left Now, adding our bubbles
+      code client/view/bubblebox.coffee
+      |  :
+    +prism language='coffeescript' class='line-numbers'
+      | ...
+      | DEFAULT_OPTIONS:
+      |   numBodies: 5
+      |   ...
+      | constructor: (@options) ->
+      |   ...
+      |   @addBubbles()
+      | ...
+      | addBubbles: ->
+      |   [0...@options.numBodies].map (i) =>
+      |     famous.utilities.Timer.setTimeout (@addBubble.bind @, i)
+      |     , (i + 1) * 500
+    div#footer PEM
+
+template(name='slide14')
+  +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]'
+    h2#header Meetup Famous - The finish, the bubbles
+    +prism language='coffeescript' class='line-numbers'
+      |   ...
+      |   addBubble: (i) ->
+      |     bubble = new Bubble()
+      |     (@add bubble.mod).add bubble.shape
+      |     bubble.mod.transformFrom ->
+      |       bubble.body.getTransform()
+      |     @pe.attach @collision, @pe.getBodies(), bubble.body
+      |     @pe.attach [
+      |       @gravity
+      |       @walls.components[0]
+      |       @walls.components[1]
+      |       @walls.components[2]
+      |       @walls.components[3]
+      |     ] , bubble.body
+      |     @pe.addBody bubble.body
+    div#footer PEM
+
+template(name='slide15')
+  +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]'
+    h2#header Meetup Famous
+    h1 Thank you for your time.
+      br
+      | Any questions?
+    p Slides are available here:
+      br
+      a(href='https://github.com/PEM--/MeetupFamousSlides') github.com/PEM--/MeetupFamousSlides
+    p Sources are available here:
+      br
+      a(href='https://github.com/PEM--/famousbubble') github.com/PEM--/famousbubble
+    div#footer PEM

@@ -1,0 +1,23 @@
+template(name='slide14')
+  +HeaderFooterLayout headerSize=100 footerSize=70
+    +Surface target='header'
+      h2 Meetup Famous - The finish, the bubbles
+    +Surface align='[.5, .5]' origin='[.5, .5]' target='content'
+      +prism language='coffeescript' class='line-numbers'
+        |   ...
+        |   addBubble: (i) ->
+        |     bubble = new Bubble()
+        |     (@add bubble.mod).add bubble.shape
+        |     bubble.mod.transformFrom ->
+        |       bubble.body.getTransform()
+        |     @pe.attach @collision, @pe.getBodies(), bubble.body
+        |     @pe.attach [
+        |       @gravity
+        |       @walls.components[0]
+        |       @walls.components[1]
+        |       @walls.components[2]
+        |       @walls.components[3]
+        |     ] , bubble.body
+        |     @pe.addBody bubble.body
+    +Surface target='footer'
+      p PEM

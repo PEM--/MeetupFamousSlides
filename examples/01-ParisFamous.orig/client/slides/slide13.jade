@@ -1,0 +1,23 @@
+template(name='slide13')
+  +HeaderFooterLayout headerSize=100 footerSize=70
+    +Surface target='header'
+      h2 Meetup Famous - The finish, the bubbles
+    +Surface align='[.5, .5]' origin='[.5, .5]' target='content'
+      p.left Now, adding our bubbles
+        code client/view/bubblebox.coffee
+        |  :
+      +prism language='coffeescript' class='line-numbers'
+        | ...
+        | DEFAULT_OPTIONS:
+        |   numBodies: 5
+        |   ...
+        | constructor: (@options) ->
+        |   ...
+        |   @addBubbles()
+        | ...
+        | addBubbles: ->
+        |   [0...@options.numBodies].map (i) =>
+        |     famous.utilities.Timer.setTimeout (@addBubble.bind @, i)
+        |     , (i + 1) * 500
+    +Surface target='footer'
+      p PEM

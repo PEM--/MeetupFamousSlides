@@ -1,0 +1,26 @@
+template(name='slide7')
+  +HeaderFooterLayout headerSize=100 footerSize=70
+    +Surface target='header'
+      h2 Meetup Famous - Main view
+    +Surface align='[.5, .5]' origin='[.5, .5]' target='content'
+      p.left Our main view
+        code client/views/bubblebox.coffee
+        | :
+      +prism language='coffeescript' class='line-numbers'
+        | class @BubbleBox extends famous.core.View
+        |   DEFAULT_OPTIONS:
+        |     size: [400, 400]
+        |     origin: [.5, .5]
+        |     align: [.5, .5]
+        |   constructor: (@options) ->
+        |     @constructor.DEFAULT_OPTIONS = @DEFAULT_OPTIONS
+        |     super @options
+        |     surf = new famous.core.Surface
+        |       size: @options.size
+        |       classes: ['bubble-main-box']
+        |     mod = new famous.core.Modifier
+        |       origin: @options.origin
+        |       align: @options.align
+        |     @add(mod).add surf
+    +Surface target='footer'
+      p PEM

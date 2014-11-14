@@ -1,0 +1,24 @@
+template(name='slide9')
+  +HeaderFooterLayout headerSize=100 footerSize=70
+    +Surface target='header'
+      h2 Meetup Famous - Bubbles
+    +Surface align='[.5, .5]' origin='[.5, .5]' target='content'
+      p.left Our bubbles
+        code client/views/bubble.coffee
+        |  :
+      +prism language='coffeescript' class='line-numbers'
+        | class @Bubble
+        |   constructor: ->
+        |     radius = famous.math.Random.integer 20, 60
+        |     @shape = new famous.core.Surface
+        |       size: [radius * 2, radius * 2]
+        |       classes: ['bubble-bluebubble']
+        |       properties: borderRadius: CSSC.x radius
+        |     @body = new famous.physics.bodies.Circle
+        |       radius: radius
+        |       mass: radius / 10
+        |     @mod = new famous.core.Modifier
+        |       origin: [.5, .5]
+        |       align: [.5, .5]
+    +Surface target='footer'
+      p PEM

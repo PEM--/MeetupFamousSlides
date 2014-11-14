@@ -1,0 +1,15 @@
+template(name='slide8')
+  +HeaderFooterLayout headerSize=100 footerSize=70
+    +Surface target='header'
+      h2 Meetup Famous - Entry point
+    +Surface align='[.5, .5]' origin='[.5, .5]' target='content'
+      p.left Calling our main view from Meteor
+        code client/index.coffee
+        | :
+      +prism language='coffeescript' class='line-numbers'
+        | Template.index.rendered = ->
+        |   mainCtx = famous.core.Engine.createContext()
+        |   appView = new BubbleBox()
+        |   mainCtx.add appView
+    +Surface target='footer'
+      p PEM

@@ -1,0 +1,23 @@
+template(name='slide6')
+  +HeaderFooterLayout headerSize=100 footerSize=70
+    +Surface target='header'
+      h2 Meetup Famous - Styling
+    +Surface align='[.5, .5]' origin='[.5, .5]' target='content'
+      p.left Optional, to simplify interactions with Famo.us, styles are written in CoffeeScript
+        code client/styles/maincss.coffee
+        | :
+      +prism language='coffeescript' class='line-numbers'
+        | css = new CSSC
+        | css.add 'html',
+        |   backgroundColor: CSSC.orange
+        | css.add '.bubble-main-box',
+        |   backgroundColor: CSSC.yellow
+        |   borderRadius: '8px'
+        | css.add '.bubble-bluebubble',
+        |   backgroundColor: CSSC.aqua
+        |   border: '3px solid ' + CSSC.blue
+        | css.add '.bubble-dragger',
+        |   backgroundColor: 'rgba(255, 255, 255, .5)'
+        |   border: '2px solid ' + CSSC.red
+    +Surface target='footer'
+      p PEM
