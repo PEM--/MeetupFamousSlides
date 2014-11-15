@@ -1,0 +1,2 @@
+)]}'
+{"version":3,"file":"/client/startup/init.coffee.js","sources":["init.coffee"],"names":[],"mappings":";AAAA,IAAC,UAAD,GAAoB,MAAM,CAAC,YAAP,KAAuB,MAA9B,GACN,YADM,GACY,OADzB;A","sourcesContent":["@CLICK_EVT = unless window.ontouchstart is undefined \\\n  then 'touchstart' else 'click'\n"]}

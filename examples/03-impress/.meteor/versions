@@ -16,7 +16,7 @@ deps@1.0.5
 ejson@1.0.4
 fastclick@1.0.1
 follower-livedata@1.0.2
-gadicohen:famous-views@0.1.24
+gadicohen:famous-views@0.1.25
 geojson-utils@1.0.1
 html-tools@1.0.2
 htmljs@1.0.2
@@ -49,7 +49,7 @@ observe-sequence@1.0.3
 ordered-dict@1.0.1
 pierreeric:cssc-colors@0.1.0
 pierreeric:cssc@0.5.0
-pierreeric:fview-slidedeck@1.0.0
+pierreeric:fview-slidedeck@0.1.0
 random@1.0.1
 reactive-dict@1.0.4
 reactive-var@1.0.3

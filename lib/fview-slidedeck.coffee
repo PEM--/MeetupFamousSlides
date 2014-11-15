@@ -2,21 +2,28 @@
 @CLICK_EVT = unless window.ontouchstart is undefined \
   then 'touchstart' else 'click'
 
+@slidedeck = {}
+
+@Transform = null
+@Easing = null
+
 FView.ready ->
-	if (slidedeck.impress)
-		FView.attrEvalAllowedKeys = ["transform"];
-		FView.mainCtx.setPerspective 1000
+  Transform = famous.core.Transform
+  Easing = famous.transitions.Easing
+  if slidedeck.impress
+    FView.attrEvalAllowedKeys = ['transform']
+    FView.mainCtx.setPerspective 1000
 
-	View = famous.core.View
-	StateModifier = famous.modifiers.StateModifier
-	Surface = famous.core.Surface
+  View = famous.core.View
+  StateModifier = famous.modifiers.StateModifier
+  Surface = famous.core.Surface
 
-	class Impress extends StateModifier
-	  constructor: (options) ->
-	    options.size = [400, 300]
-	    options.origin = [.5, .5]
-	    options.align = [.5, .5]
-	    # transform from template
-	    super(options)
+  class Impress extends StateModifier
+    constructor: (options) ->
+      options.size = [400, 300]
+      options.origin = [.5, .5]
+      options.align = [.5, .5]
+      # transform from template
+      super options
 
-	FView.registerModifier 'Impress', Impress
+  FView.registerModifier 'Impress', Impress

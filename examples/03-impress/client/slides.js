@@ -1,1 +1,0 @@
-slidedeck.impress = true;

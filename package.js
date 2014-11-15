@@ -1,7 +1,7 @@
 Package.describe({
   name: 'pierreeric:fview-slidedeck',
   summary: 'Famo.us Slide Deck',
-  version: '1.0.0',
+  version: '0.1.0',
   git: 'https://github.com/PEM--/MeetupFamousSlides'
 });
 
@@ -24,7 +24,6 @@ Package.onUse(function(api) {
 
 	// Package files
   api.addFiles([
-  	'lib/fview-slidedeck.js',
   	'lib/fview-slidedeck.jade',
   	'lib/fview-slidedeck.coffee',
   	'lib/layout.jade',
