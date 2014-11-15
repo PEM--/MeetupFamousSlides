@@ -4,6 +4,7 @@ A plugin for [famous-views](http://famous-views.meteor.com/).
 Create your fluid and beautiful collaborative slides with
 [Famo.us](http://famo.us/) & [Meteor.js](https://www.meteor.com/) within seconds.
 
+![Example of slides](https://raw.githubusercontent.com/PEM--/MeetupFamousSlides/master/private/doc/slides.jpg)
 
 ## Usage
 Starts with the usual and add some packages:
