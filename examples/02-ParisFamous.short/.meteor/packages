@@ -4,12 +4,10 @@
 # but you can also edit it by hand.
 
 meteor-platform
-coffeescript
-pierreeric:cssc-colors
-mquandalle:jade
-gadicohen:famous-views
-iron:router
-gadicohen:prism
-pierreeric:fview-slidedeck
 raix:famono
-
+gadicohen:famous-views
+pierreeric:fview-slidedeck
+mquandalle:jade
+gadicohen:prism
+coffeescript
+pierreeric:cssc

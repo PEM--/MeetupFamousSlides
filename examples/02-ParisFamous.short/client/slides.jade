@@ -1,9 +1,9 @@
 template(name='slide1')
-  +Surface
-    h2#header Meetup Famous
+  +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]'
+    h2 Meetup Famous
     h1 Physic engine
     img.gravatar(src='/gravatar.png')
-    div#footer PEM : Pierre-Eric Marchandet
+    .footer PEM : Pierre-Eric Marchandet
 
 template(name='slide2')
   +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]'
@@ -31,7 +31,7 @@ template(name='slide2')
       | meteor add raix:famono coffeescript pierreeric:cssc-famous pierreeric:cssc-colors mquandalle:jade
       | # Create the application structure
       | mkdir -p client/views client/styles
-    div#footer PEM
+    .footer PEM
 
 template(name='slide3')
   +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]'
@@ -49,7 +49,7 @@ template(name='slide3')
     p.left Launch Meteor :
     +prism language='bash' class='line-numbers'
       | meteor
-    div#footer PEM
+    .footer PEM
 
 template(name='slide4')
   +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]'
@@ -69,7 +69,7 @@ template(name='slide4')
       | body
       |   +index
       | template(name='index')
-    div#footer PEM
+    .footer PEM
 
 template(name='slide5')
   +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]'
@@ -92,7 +92,7 @@ template(name='slide5')
       |   constructor: (@options)->
       |     @constructor.DEFAULT_OPTIONS = @DEFAULT_OPTIONS
       |     super @options
-    div#footer PEM
+    .footer PEM
 
 template(name='slide6')
   +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]'
@@ -113,7 +113,7 @@ template(name='slide6')
       | css.add '.bubble-dragger',
       |   backgroundColor: 'rgba(255, 255, 255, .5)'
       |   border: '2px solid ' + CSSC.red
-    div#footer PEM
+    .footer PEM
 
 template(name='slide7')
   +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]'
@@ -137,7 +137,7 @@ template(name='slide7')
       |       origin: @options.origin
       |       align: @options.align
       |     @add(mod).add surf
-    div#footer PEM
+    .footer PEM
 
 template(name='slide8')
   +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]'
@@ -150,7 +150,7 @@ template(name='slide8')
       |   mainCtx = famous.core.Engine.createContext()
       |   appView = new BubbleBox()
       |   mainCtx.add appView
-    div#footer PEM
+    .footer PEM
 
 template(name='slide9')
   +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]'
@@ -172,7 +172,7 @@ template(name='slide9')
       |     @mod = new famous.core.Modifier
       |       origin: [.5, .5]
       |       align: [.5, .5]
-    div#footer PEM
+    .footer PEM
 
 template(name='slide10')
   +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]'
@@ -197,7 +197,7 @@ template(name='slide10')
       |       align: [.5, .5]
       |       transform: =>
       |         famous.core.Transform.translate @position[0], @position[1], 0
-    div#footer PEM
+    .footer PEM
 
 template(name='slide11')
   +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]'
@@ -226,7 +226,7 @@ template(name='slide11')
       |   @collision = new famous.physics.constraints.Collision
       |     restitution: .8
       |     drift: 1
-    div#footer PEM
+    .footer PEM
 
 template(name='slide12')
   +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]'
@@ -251,7 +251,7 @@ template(name='slide12')
       |     @dragger.position[0] += data.delta[0]
       |     @dragger.position[1] += data.delta[1]
       |     @dragger.body.setPosition @dragger.position
-    div#footer PEM
+    .footer PEM
 
 template(name='slide13')
   +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]'
@@ -272,7 +272,7 @@ template(name='slide13')
       |   [0...@options.numBodies].map (i) =>
       |     famous.utilities.Timer.setTimeout (@addBubble.bind @, i)
       |     , (i + 1) * 500
-    div#footer PEM
+    .footer PEM
 
 template(name='slide14')
   +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]'
@@ -293,7 +293,7 @@ template(name='slide14')
       |       @walls.components[3]
       |     ] , bubble.body
       |     @pe.addBody bubble.body
-    div#footer PEM
+    .footer PEM
 
 template(name='slide15')
   +Surface size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]'
@@ -307,4 +307,4 @@ template(name='slide15')
     p Sources are available here:
       br
       a(href='https://github.com/PEM--/famousbubble') github.com/PEM--/famousbubble
-    div#footer PEM
+    .footer PEM
