@@ -1,7 +1,7 @@
 Package.describe({
   name: 'pierreeric:fview-slidedeck',
   summary: 'Famo.us Slide Deck',
-  version: '0.1.0',
+  version: '0.1.1',
   git: 'https://github.com/PEM--/MeetupFamousSlides'
 });
 
