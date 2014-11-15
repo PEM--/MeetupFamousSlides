@@ -2,8 +2,9 @@ template(name='layout')
   +Modifier size='[50, 30]' size='[50, 30]' align='[0, 1]' origin='[0, 1]' translate='[10, -10, 2]'
     +Surface id='slideCpt' align='[.5, .5]' origin='[.5, .5]'
       .slide-cpt= slideCpt
-  +StateModifier id="deckmod"
-    +slide1
-    +slide2
-    +slide3
-    +slide4
+  +ContainerSurface id='deckCtx' perspective=200
+    +StateModifier id='deckmod'
+      +slide1
+      +slide2
+      +slide3
+      +slide4

@@ -1,1 +1,2 @@
-slidedeck.impress = true
+@slidedeck = impress: true
+famous.transitions.Easing

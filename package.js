@@ -28,7 +28,6 @@ Package.onUse(function(api) {
 
 	// Package files
   api.addFiles([
-  	'lib/fview-slidedeck.jade',
   	'lib/fview-slidedeck.coffee',
   	'lib/layout.jade',
   	'lib/layout.coffee',

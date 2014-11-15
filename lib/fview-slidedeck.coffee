@@ -13,8 +13,6 @@ FView.ready ->
   FView.attrEvalAllowedKeys = '*'
   if slidedeck?.impress?
     FView.attrEvalAllowedKeys = ['transform']
-    FView.mainCtx.setPerspective 1000
-
   View = famous.core.View
   StateModifier = famous.modifiers.StateModifier
   Surface = famous.core.Surface

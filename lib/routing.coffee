@@ -8,15 +8,15 @@ Router.route '/slides/:id', ->
     Router.history = @params.id
     Session.set 'slideCpt', "#{Router.history}/#{slideCount}"
   unless slidedeck?.impress?
-    @render "slide" + @params.id
-  unless FView.byId 'deckmod'
-    return
-  deckmod = (FView.byId 'deckmod').modifier
-  slide = (FView.byId "slide#{@params.id}").modifier
-  deckmod.setTransform (Transform.inverse \
-    slide.getFinalTransform()),
-    duration: 1000,
-    curve: Easing.inOutQuart
+    @render "slide#{@params.id}"
+    fdeckmod = FView.byId 'deckmod'
+    if fdeckmod?
+      deckmod = fdeckmod.modifier
+      slide = (FView.byId "slide#{@params.id}").modifier
+      deckmod.setTransform (famous.core.Transform.inverse \
+        slide.getFinalTransform()),
+        duration: 1000,
+        curve: famous.transitions.Easing.inOutQuart
 
 # Remove debug logging in Famous-Views
 Logger.setLevel 'famous-views', 'error'
@@ -32,6 +32,8 @@ Meteor.startup ->
       when 37 then Router.setPrev()
   famous.core.Engine.on CLICK_EVT, -> Router.setNext()
   slideCount++  while Template["slide#{slideCount + 1}"]
+  Template.layout.rendered = ->
+    (FView.byId 'deckCtx').view.context.setPerspective 800
 
 Router.setNext = ->
   transition = Session.get 'currentTransition'

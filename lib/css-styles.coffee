@@ -62,38 +62,22 @@ css
     font: "24px sourceSansPro"
 
   # Titles
-  .add 'h1',
-    fontSize: '3em'
-    fontFamily: 'lane'
-
-  .add 'h2',
-    fontSize: '1.8em'
-    fontFamily: 'lane'
+  .add ['h1', 'h2'], fontFamily: 'lane'
+  .add 'h1', fontSize: '3em'
+  .add 'h2', fontSize: '1.8em'
 
   # Texts
-  .add 'p',
-    fontSize: '1.2em'
-
-  .add '.left',
-    textAlign: 'left'
-
+  .add 'p', fontSize: '1.2em'
+  .add '.left', textAlign: 'left'
   .add 'a',
     color: @theme.highligh
     textDecoration: 'none'
     fontFamily: 'sourceSansProBold'
-
-  .add 'li',
-    textAlign: 'left'
-
-  .add 'a:hover',
-    textDecoration: 'underline'
-
-  .add 'code',
-    fontFamily: 'sourceCode'
-    fontSize: '.9em'
-
+  .add 'li', textAlign: 'left'
+  .add 'a:hover', textDecoration: 'underline'
   # Codes
+  .add ['code', 'pre[class*="language-"]'], fontFamily: 'sourceCode'
+  .add 'code', fontSize: '.9em'
   .add 'pre[class*="language-"]',
-    fontFamily: 'sourceCode'
     fontSize: '.6em'
     lineHeight: '.8em'

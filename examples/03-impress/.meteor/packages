@@ -4,11 +4,9 @@
 # but you can also edit it by hand.
 
 meteor-platform
-autopublish
-insecure
-mquandalle:jade
+coffeescript
 gadicohen:famous-views
+mquandalle:jade
 pierreeric:fview-slidedeck
-iron:router
 raix:famono
-
+pierreeric:cssc-colors
