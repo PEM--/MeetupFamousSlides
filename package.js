@@ -19,7 +19,8 @@ Package.onUse(function(api) {
 		'iron:router@1.0.0',
     'mjn:famous@0.3.0_5',
 		'gadicohen:famous-views@0.1.24',
-    'pierreeric:cssc-colors@0.1.0'
+    'pierreeric:cssc@1.0.3',
+    'pierreeric:cssc-colors@1.0.3'
 	], 'client');
 
 	// Package files

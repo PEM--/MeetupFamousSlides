@@ -10,7 +10,8 @@
 FView.ready ->
   Transform = famous.core.Transform
   Easing = famous.transitions.Easing
-  if slidedeck.impress
+  FView.attrEvalAllowedKeys = '*'
+  if slidedeck?.impress?
     FView.attrEvalAllowedKeys = ['transform']
     FView.mainCtx.setPerspective 1000
 

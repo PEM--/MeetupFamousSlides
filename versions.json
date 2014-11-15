@@ -134,7 +134,7 @@
     ],
     [
       "mjn:famous",
-      "0.3.0_5"
+      "0.3.1_1"
     ],
     [
       "mongo",
@@ -154,11 +154,11 @@
     ],
     [
       "pierreeric:cssc",
-      "0.5.0"
+      "1.0.3"
     ],
     [
       "pierreeric:cssc-colors",
-      "0.1.0"
+      "1.0.3"
     ],
     [
       "random",

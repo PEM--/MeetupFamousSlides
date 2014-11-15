@@ -7,12 +7,12 @@ Router.route '/slides/:id', ->
   unless Router.history?
     Router.history = @params.id
     Session.set 'slideCpt', "#{Router.history}/#{slideCount}"
-  unless slidedeck.impress
+  unless slidedeck?.impress?
     @render "slide" + @params.id
-  unless FView.byId("deckmod")
+  unless FView.byId 'deckmod'
     return
-  deckmod = FView.byId("deckmod").modifier
-  slide = FView.byId("slide" + @params.id).modifier
+  deckmod = (FView.byId 'deckmod').modifier
+  slide = (FView.byId "slide#{@params.id}").modifier
   deckmod.setTransform (Transform.inverse \
     slide.getFinalTransform()),
     duration: 1000,
@@ -31,7 +31,7 @@ Meteor.startup ->
       # SPACE and →: Go next slide
       when 37 then Router.setPrev()
   famous.core.Engine.on CLICK_EVT, -> Router.setNext()
-  slideCount++  while Template["slide" + (slideCount + 1)]
+  slideCount++  while Template["slide#{slideCount + 1}"]
 
 Router.setNext = ->
   transition = Session.get 'currentTransition'
@@ -39,7 +39,7 @@ Router.setNext = ->
     Session.set 'currentTransition', 'slideWindow'
   Router.history++
   Router.history = 1 if Router.history == slideCount + 1
-  Router.go '/slides/'+Router.history
+  Router.go "/slides/#{Router.history}"
 
 Router.setPrev = ->
   transition = Session.get 'currentTransition'
@@ -47,7 +47,7 @@ Router.setPrev = ->
     Session.set 'currentTransition', 'slideWindowRight'
   Router.history--
   Router.history = slideCount if Router.history is 0
-  Router.go '/slides/'+Router.history
+  Router.go "/slides/#{Router.history}"
 
 Router.setCounter = ->
   window.cpt = FView.byId 'slideCpt'

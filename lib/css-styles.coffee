@@ -33,15 +33,15 @@ css
 
   # Slide counter
   .add '.slide-cpt',
-    border: "#{CSSC.x 3} solid #{@theme.primary}"
-    borderRadius: CSSC.x 30
+    border: "#{CSSC.px 3} solid #{@theme.primary}"
+    borderRadius: CSSC.px 30
     backgroundColor: CSSC.white
     color: @theme.primary
     textAlign: 'center'
-    width: CSSC.p 100
-    height: CSSC.p 100
-    lineHeight: CSSC.x 22
-    fontSize: CSSC.x 14
+    width: CSSC.pc 100
+    height: CSSC.pc 100
+    lineHeight: CSSC.px 22
+    fontSize: CSSC.px 14
     margin: 0
     padding: 0
     boxSizing: 'border-box'
@@ -49,9 +49,9 @@ css
 
   # Gravatar
   .add '.gravatar',
-    borderRadius: CSSC.p 5
+    borderRadius: CSSC.pc 5
     border: "3px solid #{@theme.primary}"
-    width: CSSC.p 20
+    width: CSSC.pc 20
 
   # Background and generic values
   .add 'html',
