@@ -46,9 +46,10 @@ mongo@1.0.8
 mquandalle:jade@0.2.9
 observe-sequence@1.0.3
 ordered-dict@1.0.1
-pierreeric:cssc-colors@0.1.0
-pierreeric:cssc@0.5.0
-pierreeric:fview-slidedeck@1.0.0
+pierreeric:cssc-colors@1.0.3
+pierreeric:cssc@1.0.3
+pierreeric:fview-slidedeck@0.1.0
+raix:famono@0.9.16
 random@1.0.1
 reactive-dict@1.0.4
 reactive-var@1.0.3

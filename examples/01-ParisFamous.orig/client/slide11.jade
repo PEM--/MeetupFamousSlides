@@ -1,0 +1,31 @@
+template(name='slide11')
+  +HeaderFooterLayout headerSize=100 footerSize=70 size='[900, undefined]' align='[.5, .5]' origin='[.5, .5]'
+    +Surface target='header'
+      h2 Meetup Famous - Forces & constraints
+    +Surface align='[.5, .5]' origin='[.5, .5]' target='content'
+      p.left Adding a force, some constraints and the physic engine in our main view
+        code client/view/bubblebox.coffee
+        | :
+      +prism language='coffeescript' class='line-numbers'
+        | ...
+        | DEFAULT_OPTIONS:
+        |   gravityStrength: 3
+        |   gravityNormal: [0, -200]
+        |   ...
+        | constructor: (@options) ->
+        |   ...
+        |   @gravity = new famous.physics.forces.Repulsion
+        |     strength: @options.gravityStrength
+        |     anchor: @options.gravityNormal
+        |   @walls = new famous.physics.constraints.Walls
+        |     sides: famous.physics.constraints.Walls.SIDES.TWO_DIMENSIONAL
+        |     size: @options.size
+        |     origin: @options.origin
+        |     restitution: 1
+        |     drift: 1
+        |   @pe = new famous.physics.PhysicsEngine()
+        |   @collision = new famous.physics.constraints.Collision
+        |     restitution: .8
+        |     drift: 1
+    +Surface target='footer'
+      p PEM

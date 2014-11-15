@@ -14,12 +14,15 @@ Package.onUse(function(api) {
 	], 'client');
 
   // Atmosphere packages
+  api.use('mjn:famous@0.3.0_5', 'client', { weak: true });
+  api.use('raix:famono@0.9.14', { weak: true });
 	api.use([
 		'mquandalle:jade@0.2.9',
 		'iron:router@1.0.0',
-    'mjn:famous@0.3.0_5',
 		'gadicohen:famous-views@0.1.24',
     'pierreeric:cssc@1.0.3',
+    'pierreeric:cssc-normalize@1.0.1',
+    'pierreeric:cssc-famous@1.0.1',
     'pierreeric:cssc-colors@1.0.3'
 	], 'client');
 

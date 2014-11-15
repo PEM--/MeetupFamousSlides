@@ -9,25 +9,25 @@ css
   # Fonts
   .add '@font-face',
     fontFamily: 'lane'
-    src: "url('Lane/LANENAR_.ttf')"
+    src: "url('/Lane/LANENAR_.ttf')"
     fontWeight: 'normal'
     fontStyle: 'normal'
 
   .add '@font-face',
     fontFamily: 'sourceSansPro'
-    src: "url('source-sans-pro/SourceSansPro-Regular.otf')"
+    src: "url('/source-sans-pro/SourceSansPro-Regular.otf')"
     fontWeight: 'normal'
     fontStyle: 'normal'
 
   .add '@font-face',
     fontFamily: 'sourceSansProBold'
-    src: "url('source-sans-pro/SourceSansPro-Bold.otf')"
+    src: "url('/source-sans-pro/SourceSansPro-Bold.otf')"
     fontWeight: 'normal'
     fontStyle: 'normal'
 
   .add '@font-face',
     fontFamily: 'sourceCode'
-    src: "url('source-code-pro/SourceCodePro-Regular.otf')"
+    src: "url('/source-code-pro/SourceCodePro-Regular.otf')"
     fontWeight: 'normal'
     fontStyle: 'normal'
 
