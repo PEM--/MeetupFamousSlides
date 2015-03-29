@@ -6,6 +6,9 @@ Create your fluid and beautiful collaborative slides with
 
 ![Example of slides](https://raw.githubusercontent.com/PEM--/MeetupFamousSlides/master/private/doc/slides.jpg)
 
+## Showcases
+* User accounts: http://useraccounts-meteorday.meteor.com/
+
 ## Usage
 Starts with the usual and add some packages:
 ```bash
