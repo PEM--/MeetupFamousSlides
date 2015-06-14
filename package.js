@@ -1,7 +1,7 @@
 Package.describe({
   name: 'pierreeric:fview-slidedeck',
   summary: 'Famo.us Slide Deck',
-  version: '0.1.1',
+  version: '1.0.0',
   git: 'https://github.com/PEM--/MeetupFamousSlides'
 });
 
@@ -14,12 +14,16 @@ Package.onUse(function(api) {
 	], 'client');
 
   // Atmosphere packages
+  /*
   api.use('mjn:famous@0.3.0_5', 'client', { weak: true });
   api.use('raix:famono@0.9.14', { weak: true });
+  */
+  api.use('gadicohen:famous@0.5.2', 'client');
+  
 	api.use([
 		'mquandalle:jade@0.2.9',
 		'iron:router@1.0.0',
-		'gadicohen:famous-views@0.1.24',
+		'gadicohen:famous-views@1.0.6',
     'pierreeric:cssc@1.0.3',
     'pierreeric:cssc-normalize@1.0.1',
     'pierreeric:cssc-famous@1.0.1',

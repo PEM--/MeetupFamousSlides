@@ -9,8 +9,11 @@ head
 body
 
 template(name='defaultLayout')
-  +Modifier size='[50, 30]' size='[50, 30]' align='[0, 1]' origin='[0, 1]' translate='[10, -10, 100]'
-    +Surface id='slideCpt' align='[.5, .5]' origin='[.5, .5]'
-      .slide-cpt= slideCpt
-  +RenderController transition=getTransition
-    +yield
+  +Scene
+    +Camera depth=2000
+    +Node size='A:50; A:30' align='[0, 1]' origin='[0, 1]' position='[10, -40, 1]'
+      +Node id='slideCpt' align='[.5, .5]' mountPoint='[.5, .5]' origin='[.5, .5]'
+        +DOMElement
+          .slide-cpt= slideCpt
+    +RenderController
+      +yield

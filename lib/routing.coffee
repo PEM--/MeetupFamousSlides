@@ -19,21 +19,22 @@ Router.route '/slides/:id', ->
         curve: famous.transitions.Easing.inOutQuart
 
 # Remove debug logging in Famous-Views
-Logger.setLevel 'famous-views', 'error'
+#Logger.setLevel 'famous-views', 'error'
 
 slideCount = 0
 Meteor.startup ->
   # Events handling for going from one slide to the other.
-  famous.core.Engine.on 'keydown', (keyEvt) ->
+  #famous.core.Engine.on 'keydown', (keyEvt) ->
+  document.body.addEventListener 'keydown', (keyEvt) ->
     switch keyEvt.which
       # SPACE and →: Go next slide
       when 39, 32 then Router.setNext()
       # SPACE and →: Go next slide
       when 37 then Router.setPrev()
-  famous.core.Engine.on CLICK_EVT, -> Router.setNext()
+  #famous.core.Engine.on CLICK_EVT, -> Router.setNext()
   slideCount++  while Template["slide#{slideCount + 1}"]
-  Template.layout.rendered = ->
-    (FView.byId 'deckCtx').view.context.setPerspective 800
+#  Template.layout.rendered = ->
+#    (FView.byId 'deckCtx').view.context.setPerspective 800
 
 Router.setNext = ->
   transition = Session.get 'currentTransition'
@@ -54,12 +55,14 @@ Router.setPrev = ->
 Router.setCounter = ->
   window.cpt = FView.byId 'slideCpt'
   unless cpt is undefined
-    cpt.modifier.halt()
-    cpt.modifier.setTransform (famous.core.Transform.rotateY Math.PI),
+    if !cpt.rotation
+      cpt.rotation = new (famous.components.Rotation)(cpt.node)
+    cpt.rotation.halt()
+    cpt.rotation.setY Math.PI,
       duration: 300,
       ->
         Session.set 'slideCpt', "#{Router.history}/#{slideCount}"
-        cpt.modifier.setTransform (famous.core.Transform.rotateY 0),
+        cpt.rotation.setY 0,
           duration: 300
 
 Router.onAfterAction -> Router.setCounter()
