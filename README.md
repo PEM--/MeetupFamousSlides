@@ -63,3 +63,9 @@ same helpers onto it for your use.
 ### Themes
 A basic theme is provided for a nice display out of the box. You can easily
 customize it with CSS, LESS, Stylus or in CoffeeScript using [CSSC](https://github.com/PEM--/cssc/).
+
+### Navigation
+
+* Keys: Left arrow, previous slide; Right arrow and/or Spacebar, next slide;
+* Mouse: Click in 1st 1/3rd of page, previous; Click in right 2/3rds, next;
+  Won't transition when clicking on an `A` tag or `.noclick` class

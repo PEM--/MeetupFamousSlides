@@ -1,5 +1,4 @@
 head
-  title Meetup Famous - Physic engine
   meta(charset='utf-8')
   meta(name='viewport', content='width=device-width, maximum-scale=1, user-scalable=no')
   meta(name='apple-mobile-web-app-capable', content='yes')
@@ -8,12 +7,33 @@ head
   meta(name='mobile-web-app-capable', content='yes')
 body
 
+template(name='mainDomEvents')
+
 template(name='defaultLayout')
   +Scene
-    +Camera depth=2000
-    +Node size='A:50; A:30' align='[0, 1]' origin='[0, 1]' position='[10, -40, 1]'
-      +Node id='slideCpt' align='[.5, .5]' mountPoint='[.5, .5]' origin='[.5, .5]'
+    +Node
+      +DOMElement
+        +mainDomEvents
+      +Camera depth=2000
+      +Node size='A:50; A:30' align='[0, 1]' origin='[0, 1]' position='[10, -40, 1]'
+        +Node id='slideCpt' align='[.5, .5]' mountPoint='[.5, .5]' origin='[.5, .5]'
+          +DOMElement
+            .slide-cpt= slideCpt
+      +RenderController transition=getTransition
+        +yield
+
+
+//-
+  https://github.com/Famous/engine/issues/295
+  template(name='defaultLayout')
+    +Scene
+      +Node _onRender="setup"
         +DOMElement
-          .slide-cpt= slideCpt
-    +RenderController
-      +yield
+          | 
+        +Camera depth=2000
+        +Node size='A:50; A:30' align='[0, 1]' origin='[0, 1]' position='[10, -40, 1]'
+          +Node id='slideCpt' align='[.5, .5]' mountPoint='[.5, .5]' origin='[.5, .5]'
+            +DOMElement
+              .slide-cpt= slideCpt
+        +RenderController transition=getTransition
+          +yield
