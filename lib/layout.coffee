@@ -20,10 +20,14 @@ Meteor.startup ->
     Session.set 'currentTransition', 'slideWindow'
     Router.setCounter()
 
+findAncestor = (el, cls) ->
+  while (el = el.parentElement) and !el.classList.contains(cls) then
+  el
+
 Template.mainDomEvents.onRendered ->
   el = this.view._domrange.parentElement.parentNode
   $(el).on 'click', (evt) ->
-    if evt.target.tagName != 'A' && !$(evt.target).hasClass('noclick')
+    if evt.target.tagName != 'A' && !findAncestor(evt.target, 'noclick')
       if evt.clientX / $(window).width() > 0.33
         FView.defer Router.setNext
       else

@@ -17,8 +17,8 @@ FView.ready ->
       @setAlign             .5, .5, .5
       @setMountPoint        .5, .5, .5
       @setSizeMode          Node.RELATIVE_SIZE, Node.RELATIVE_SIZE, Node.RELATIVE_SIZE
-      @setProportionalSize  1, 1, 1
-      @setDifferentialSize  -10, -10, 0
+      @setProportionalSize  0.9, 1, 1
+      @setDifferentialSize  0, -10, 0
 
   FView.wrap 'Slide', Slide
 
